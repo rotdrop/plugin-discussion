@@ -6,7 +6,7 @@
  * Check if a field is blank
  */
 function isBlank(s){
-  if ((s === null) || (s.length === 0)){
+  if (typeof s == 'undefined' || (s === null) || (s.length === 0)){
     return true;
   }
 
@@ -23,8 +23,13 @@ function isBlank(s){
  * Validate an input field
  */
 function validate(form){
-    if(!form) return;
+    if(!form) return false;
 
+    // form.name = jQuery(form).find('input[name="name"]').get(0);
+    // form.text = jQuery(form).find('input[name="text"]').get(0);
+    // form.mail = jQuery(form).find('input[name="mail"]').get(0);
+
+    if (typeof form.name != 'undefined')
     if (isBlank(form.name.value)){
         form.name.focus();
         form.name.style.backgroundColor = '#fcc';
@@ -32,6 +37,7 @@ function validate(form){
     } else {
         form.name.style.backgroundColor = '#fff';
     }
+    if (typeof form.mail != 'undefined')
     if (isBlank(form.mail.value) || form.mail.value.indexOf("@") == -1){
         form.mail.focus();
         form.mail.style.backgroundColor = '#fcc';
@@ -39,11 +45,13 @@ function validate(form){
     } else {
         form.mail.style.backgroundColor = '#fff';
     }
+    if (typeof form.text != 'undefined')
     if (isBlank(form.text.value)){
         form.text.focus();
         form.text.style.borderColor = '#fcc';
         return false;
     }
+    return false;
 }
 
 /**
