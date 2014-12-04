@@ -949,7 +949,7 @@ class action_plugin_discussion extends DokuWiki_Action_Plugin{
         ?>
 
         <div class="comment_form">
-          <form id="discussion__comment_form" method="post" action="<?php echo script() ?>" accept-charset="<?php echo $lang['encoding'] ?>">
+          <form id="discussion__comment_form" method="post" action="<?php echo dokuscript() ?>" accept-charset="<?php echo $lang['encoding'] ?>">
             <div class="no">
               <input type="hidden" name="id" value="<?php echo $ID ?>" />
               <input type="hidden" name="do" value="show" />
@@ -1122,7 +1122,7 @@ class action_plugin_discussion extends DokuWiki_Action_Plugin{
         $anchor = ($jump ? '#discussion__comment_form' : '' );
 
         ?>
-        <form class="button discussion__<?php echo $act?>" method="get" action="<?php echo script().$anchor ?>">
+        <form class="button discussion__<?php echo $act?>" method="get" action="<?php echo dokuscript().$anchor ?>">
           <div class="no">
             <input type="hidden" name="id" value="<?php echo $ID ?>" />
             <input type="hidden" name="do" value="show" />
